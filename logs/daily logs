@@ -1,0 +1,43 @@
+1) setup spring boot in vs code
+
+extension of vs code -
+
+Spring tools
+Extension Pack Java
+JDK
+
+2) project structure-
+
+src/
+    main/
+        Controller/
+                  ChatController.java
+        ChatApplication.java
+    resources/
+            static/
+                  script.js
+                  styles.css
+            templates/
+                  index.html
+
+key learning-
+
+in ChatController-
+
+@Controller
+@GetMapping(endpoint)
+@PostMapping(endpoint)
+
+if to set the port of the site in application.properties add - server.port=9090
+
+
+in get mapping-->
+return "index";  // This will look for index.html in templates folder
+
+
+error and its fixes -
+
+error -  404 not found error even after keeping all the files in the correct directory 
+fix -  added thymleaf to pom.xml in dependency
+
+

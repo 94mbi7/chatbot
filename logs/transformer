@@ -1,0 +1,56 @@
+Resource - 
+
+encoder - https://www.youtube.com/watch?v=GDN649X_acE
+
+
+
+transformer models are of 3 types broadly speaking
+
+1 encoder
+2 decoder
+3 encider-decoder or seq2seq
+
+bert is an encoder only model
+gpt is a decoder only model
+
+encoder - job is to create encodings of the sentences and words and is used for sentiment analysis 
+
+decoder - crunches some number and uses the ouput of the encoder to translate from one language to another
+
+
+encoder consists of -
+
+1 word embedding as to be able to predict next word and also to cluster similar words together basically converts words to numbers using neural net
+
+eg - pizza is great!    <-----| ___ different words greate and awesome but of same meaning
+     pizza is awesome!  <-----|
+
+2 positional encoding for learning grammatical meaning of words or word order
+ 
+eg - ram eats pizza    <-----| ___ same words used but change of order chages the meaning
+     pizza eats ram    <-----|
+
+
+3 self attention or attention in encoder here, although there are differnet types of attention.
+  attentions job is to keep track of relatioin between words
+
+  eg - the pizza came out of the oven and it tasted good!
+      
+       here it can refer to both pizza and oven but correct is pizza.
+
+    self attention keeps track of similarity of all of the other words in the sentence and to the word itself
+
+    after similarity is calculated then the words encoding is focused
+
+    if the similarities are calculated correctly then pizza would be having a greater impact on it than oven has!
+
+    all three embedding are taken in consideration for the last decision and these are called context aware embedding (CAE) or contexualization embedding
+
+    context aware as understanding of the sentence is done. these types of transformers can cluster similar contextual of sentences and also similar contextual docs
+
+    The ability to cluster similar sentences and docs is the foundation for Retrieval-Augumented Generation or RAG.
+
+
+    RAG works by breaking a doc into blocks of texts and then using encoder only transformer to create CAE for each one.
+
+    then if a question is asked then CAE is created and compared to the texts.
